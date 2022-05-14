@@ -27,6 +27,9 @@ public class LaunchBrowser {
 		//Entering Wikipedia of Virat
 		driver.findElement(By.linkText("Wikipedia")).click();
 		
+		//Getting title of final page and printing
+		String title = driver.getTitle();
+		System.out.println(title);
 		//Closing the browser
 		driver.close();
 		
