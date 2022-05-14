@@ -11,28 +11,28 @@ public class GetTitle {
 	public static void main(String[] args) {
 		// Configuring the system properties of chrome driver
 		System.setProperty("webdriver.chrome.driver", "/home/shyam/chromedriver/chromedriver");
-		
-		//Initializing the browser driver
+
+		// Initializing the browser driver
 		WebDriver driver = new ChromeDriver();
-		
-		//Navigating through a Google.co.in
+
+		// Navigating through a Google.co.in
 		driver.get("https://www.google.co.in");
-		
-		//Initializing SearchBox WebElement to store
+
+		// Initializing SearchBox WebElement to store
 		WebElement SearchBox = driver.findElement(By.name("q"));
-		
-		//Search for Virat Kohli
-		SearchBox.sendKeys("Virat Kohli"+Keys.ENTER);
-		
-		//Entering Wikipedia of Virat
+
+		// Search for Virat Kohli
+		SearchBox.sendKeys("Virat Kohli" + Keys.ENTER);
+
+		// Entering Wikipedia of Virat
 		driver.findElement(By.linkText("Wikipedia")).click();
-		
-		//Getting title of final page and printing
+
+		// Getting title of final page and printing
 		String title = driver.getTitle();
 		System.out.println(title);
-		//Closing the browser
+		// Closing the browser
 		driver.close();
-		
+
 	}
 
 }
