@@ -1,6 +1,9 @@
 package seleniumPlayground;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -45,6 +48,20 @@ public class CalenderDragDropTooltip {
 		
 		String tooltip = driver.findElement(By.id("age")).getAttribute("title");
 		System.out.println("Tooltip text: "+tooltip);
+		
+		// Selectables playground
+		driver.findElement(By.xpath("//img[@alt='logo Testleaf']")).click();
+		driver.findElement(By.xpath("//img[@alt='selectable']")).click();
+		
+		List<WebElement> webElementsOptions = driver.findElements(By.xpath("//ol[@id='selectable']/li"));
+		Actions action1 = new Actions(driver);
+		action1.keyDown(Keys.CONTROL).click(webElementsOptions.get(0))
+		.click(webElementsOptions.get(0))
+		.click(webElementsOptions.get(3))
+		.click(webElementsOptions.get(5))
+		.click(webElementsOptions.get(6))
+		.build().perform();
+		
 	}
 
 }
