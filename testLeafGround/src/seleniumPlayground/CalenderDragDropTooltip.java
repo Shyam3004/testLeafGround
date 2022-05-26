@@ -61,6 +61,26 @@ public class CalenderDragDropTooltip {
 		.click(webElementsOptions.get(5))
 		.click(webElementsOptions.get(6))
 		.build().perform();
+		action1.keyUp(Keys.CONTROL).build().perform();
+		
+		
+		// Sortables playground
+		driver.findElement(By.xpath("//img[@alt='logo Testleaf']")).click();
+		driver.findElement(By.xpath("//img[@alt='sortable']")).click();
+		
+		int totalOpt = driver.findElements(By.xpath("//ul[@id='sortable']/li")).size();
+		for (int i = 0; i < totalOpt; i++) {
+			List<WebElement> sortables = driver.findElements(By.xpath("//ul[@id='sortable']/li"));
+			WebElement from = sortables.get(6);
+			WebElement to = sortables.get(i);
+			Actions action2 = new Actions(driver);
+			action2.clickAndHold(from).moveToElement(to).release(to);
+			action2.build().perform();
+		}
+		
+		
+		
+		
 		
 	}
 
